@@ -2,31 +2,305 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=public/index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ModCraft Quest</title>
-    <style>
-      body {
-        font-family: "Inter", system-ui, sans-serif;
-        background: #f8fafc;
-        color: #0f172a;
-        display: grid;
-        place-items: center;
-        min-height: 100vh;
-        margin: 0;
-        text-align: center;
-      }
-      a {
-        color: #0284c7;
-      }
-    </style>
+    <title>ModCraft Quest: Build Your First Minecraft Mod</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <header class="hero">
+      <div class="hero__text">
+        <p class="eyebrow">ModCraft Quest</p>
+        <h1>Build Your First Minecraft Mod — Step by Step</h1>
+        <p>
+          A friendly, hands-on learning path for a super-smart 6th grader. We’ll
+          set up your tools, practice real code, and ship a finished mod — while
+          you track your progress and pick up right where you left off.
+        </p>
+        <div class="hero__actions">
+          <button class="primary" id="resume-btn">Resume Where I Left Off</button>
+          <button class="ghost" id="reset-btn">Reset Progress</button>
+        </div>
+      </div>
+      <div class="hero__art" aria-hidden="true">
+        <img src="assets/hero.svg" alt="" />
+      </div>
+    </header>
+
     <main>
-      <h1>Loading ModCraft Quest…</h1>
-      <p>
-        If you are not redirected automatically, <a href="public/index.html">open the site</a>.
-      </p>
+      <section class="card" id="setup">
+        <div class="card__header">
+          <h2>1) Setup: Chromebook or Ubuntu</h2>
+          <p>
+            You can use a Chromebook (with Linux enabled) or an Ubuntu laptop.
+            Both options let you code using Java and run Minecraft Java Edition
+            with the Fabric mod loader.
+          </p>
+        </div>
+        <div class="grid">
+          <article>
+            <h3>Chromebook (Linux)</h3>
+            <ol>
+              <li>Open Settings → Developers → turn on Linux.</li>
+              <li>Install <strong>Java 17</strong> in the Linux terminal.</li>
+              <li>Install <strong>VS Code</strong> (or a similar code editor).</li>
+              <li>Download Minecraft Java Edition.</li>
+              <li>Install the Fabric Loader for your Minecraft version.</li>
+            </ol>
+            <details>
+              <summary>Quick terminal commands</summary>
+              <pre><code>sudo apt update
+sudo apt install -y openjdk-17-jdk
+java -version</code></pre>
+            </details>
+          </article>
+          <article>
+            <h3>Ubuntu Laptop</h3>
+            <ol>
+              <li>Install <strong>Java 17</strong> from the terminal.</li>
+              <li>Install <strong>VS Code</strong> or IntelliJ IDEA.</li>
+              <li>Download Minecraft Java Edition.</li>
+              <li>Install Fabric Loader.</li>
+              <li>Create a new “mods” folder inside your Minecraft folder.</li>
+            </ol>
+            <details>
+              <summary>Quick terminal commands</summary>
+              <pre><code>sudo apt update
+sudo apt install -y openjdk-17-jdk
+java -version</code></pre>
+            </details>
+          </article>
+        </div>
+        <div class="tip">
+          <strong>Why Fabric?</strong> Fabric is lightweight and friendly for
+          beginner modders, and it’s popular in the modding community.
+        </div>
+        <div class="image-row">
+          <figure>
+            <img src="assets/setup.svg" alt="Laptop with tools ready" />
+            <figcaption>Getting your tools ready.</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/flow.svg" alt="Step-by-step path to a mod" />
+            <figcaption>A clear path to your first mod.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="card" id="weekly-program">
+        <div class="card__header">
+          <h2>2) Weekly Program (8 Weeks)</h2>
+          <p>
+            Check off each week as you go. Your progress is saved in this
+            browser, so you can come back later.
+          </p>
+        </div>
+        <div class="progress">
+          <div class="progress__bar" id="progress-bar" aria-hidden="true"></div>
+          <span id="progress-text">0% complete</span>
+        </div>
+        <div class="week" data-week="1">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 1: Minecraft Modding Tour + Java Warmup</span>
+          </label>
+          <ul>
+            <li>Watch: <a href="https://www.youtube.com/watch?v=1M9l0Yg0T0A" target="_blank" rel="noreferrer">What is Fabric Modding?</a></li>
+            <li>Do: Write a tiny Java program that prints “Hello, Modder!”</li>
+            <li>Goal: Understand files, folders, and compiling.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="2">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 2: Minecraft Files + Resource Packs</span>
+          </label>
+          <ul>
+            <li>Watch: <a href="https://www.youtube.com/watch?v=4r5xA1v4S2o" target="_blank" rel="noreferrer">Resource Packs Explained</a></li>
+            <li>Do: Create a resource pack that changes a block texture.</li>
+            <li>Goal: Learn how Minecraft loads assets.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="3">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 3: Fabric Project Setup</span>
+          </label>
+          <ul>
+            <li>Watch: <a href="https://www.youtube.com/watch?v=4Q6x16S6u-I" target="_blank" rel="noreferrer">Fabric Setup Guide</a></li>
+            <li>Do: Generate a Fabric mod project and run it in the dev client.</li>
+            <li>Goal: Launch Minecraft from code.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="4">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 4: Your First Custom Item</span>
+          </label>
+          <ul>
+            <li>Watch: <a href="https://www.youtube.com/watch?v=6p2z2n-6yqg" target="_blank" rel="noreferrer">Creating Items in Fabric</a></li>
+            <li>Do: Add a “Glow Berry Wand” item.</li>
+            <li>Goal: Register items and textures.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="5">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 5: Behavior with Code</span>
+          </label>
+          <ul>
+            <li>Watch: <a href="https://www.youtube.com/watch?v=G86s6KAL0TQ" target="_blank" rel="noreferrer">Adding Item Abilities</a></li>
+            <li>Do: Make the wand spawn glowing particles.</li>
+            <li>Goal: Trigger events in code.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="6">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 6: Add a Simple Block</span>
+          </label>
+          <ul>
+            <li>Watch: <a href="https://www.youtube.com/watch?v=U5W9vS1Vq1I" target="_blank" rel="noreferrer">Blocks in Fabric</a></li>
+            <li>Do: Create a “Moonstone Block” with a new texture.</li>
+            <li>Goal: Register blocks and block items.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="7">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 7: Build the First Mod Story</span>
+          </label>
+          <ul>
+            <li>Do: Combine your wand + moonstone into a mini adventure.</li>
+            <li>Goal: Write a short README and mod description.</li>
+          </ul>
+        </div>
+        <div class="week" data-week="8">
+          <label class="week__checkbox">
+            <input type="checkbox" />
+            <span>Week 8: Package, Test, and Share</span>
+          </label>
+          <ul>
+            <li>Do: Build the mod .jar file and test it in Minecraft.</li>
+            <li>Goal: Share the mod with a friend on Ubuntu/Chromebook.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="card" id="hands-on">
+        <div class="card__header">
+          <h2>3) Hands-On Build: The Glow Berry Wand Mod</h2>
+          <p>
+            This is your first complete mod. You’ll create a custom item,
+            customize its texture, and give it a cool ability.
+          </p>
+        </div>
+        <div class="timeline">
+          <div>
+            <h3>Step A: Create the mod</h3>
+            <ul>
+              <li>Use the Fabric project generator (Gradle).</li>
+              <li>Pick a mod ID like <code>glow_berry_wand</code>.</li>
+              <li>Run the dev client to check everything works.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Step B: Register the item</h3>
+            <ul>
+              <li>Add a new <code>Item</code> in your mod initializer.</li>
+              <li>Give it a creative tab.</li>
+              <li>Make sure the item appears in-game.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Step C: Add the texture</h3>
+            <ul>
+              <li>Draw a 16×16 PNG in any art tool.</li>
+              <li>Save it in the textures folder.</li>
+              <li>Reload the game to see it.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Step D: Add ability code</h3>
+            <ul>
+              <li>Use Fabric events to detect right-click.</li>
+              <li>Spawn particles and play a sound.</li>
+              <li>Optionally give the player a speed boost.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="callout">
+          <p>
+            ✅ By the end, you have a full mod with code, assets, and a gameplay
+            effect.
+          </p>
+        </div>
+      </section>
+
+      <section class="card" id="install">
+        <div class="card__header">
+          <h2>4) Packaging &amp; Installing Your Mod</h2>
+          <p>
+            Nintendo Switch versions of Minecraft do <strong>not</strong> support
+            mods unless the console is modified (which isn’t recommended). So
+            we’ll install the mod on Ubuntu/Chromebook instead.
+          </p>
+        </div>
+        <div class="grid">
+          <article>
+            <h3>Build the mod file</h3>
+            <ol>
+              <li>Open the project folder in a terminal.</li>
+              <li>Run <code>./gradlew build</code>.</li>
+              <li>Find the <code>.jar</code> file in <code>build/libs</code>.</li>
+            </ol>
+          </article>
+          <article>
+            <h3>Install on Ubuntu / Chromebook</h3>
+            <ol>
+              <li>Open the Minecraft folder.</li>
+              <li>Drop the mod <code>.jar</code> into the <code>mods</code> folder.</li>
+              <li>Start Minecraft with Fabric Loader.</li>
+            </ol>
+          </article>
+        </div>
+        <div class="tip">
+          Want to share? Zip the <code>build/libs</code> file and send it to a
+          friend who also uses Fabric.
+        </div>
+      </section>
+
+      <section class="card" id="extras">
+        <div class="card__header">
+          <h2>5) Extra Features</h2>
+          <p>Helpful tools for staying on track.</p>
+        </div>
+        <div class="grid">
+          <article>
+            <h3>Progress Journal</h3>
+            <p>
+              Use the notes box below to write down what you finished, bugs you
+              saw, and ideas for next time.
+            </p>
+            <textarea id="notes" placeholder="Write your progress notes here..."></textarea>
+            <button class="primary" id="save-notes">Save Notes</button>
+          </article>
+          <article>
+            <h3>Next Steps Ideas</h3>
+            <ul>
+              <li>Add a new biome with a custom tree.</li>
+              <li>Create a new armor set.</li>
+              <li>Give your wand a crafting recipe.</li>
+              <li>Record a short video demo of your mod.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
     </main>
+
+    <footer class="footer">
+      <p>ModCraft Quest © 2024 — Learn, build, and share your ideas.</p>
+    </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>
